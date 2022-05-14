@@ -5,24 +5,27 @@ from django.http import HttpResponse
 from myapp.models import Banner, Blurb, Book, HomeInfo
 
 def index(request):
-    return HttpResponse("Hello wayo!")
+    return HttpResponse("Hello d!")
 
 def book_by_id(request, book_id):
     book = Book.objects.get(pk=book_id)
     return render(request, 'book_details.html', {'book':book})
 
+def other(request):
+    return render(request, 'theother.html')
+
 def book(request):
 	info = HomeInfo()
-	info.tagline = "A pretty Laddy"
+	info.tagline = "O Viado do gabriel"
 	info.example_email = "daniel.barce@gmai.com"
 	info.email_button = "danie@gmd"
 
 	ab = Blurb()
 	ab.title = "Memorias de alguem"
-	ab.content = "Memorias de alguem"
+	ab.content = "Memoriass de alguem"
 	ab.link = "www.wayo.com.br"
 	ab.link_text = "wayo"
-	blurbs = [ab, ab, ab, ab, ab, ab]
+	blurbs = [ab, ab, ab]
 
 	banner = Banner()
 	banner.image = "https://instagram.fvix2-1.fna.fbcdn.net/v/t51.2885-19/268986926_1268996120233572_6001274512280062658_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.fvix2-1.fna.fbcdn.net&_nc_cat=100&_nc_ohc=X2QQAXXGFVoAX-EGLz_&edm=AIQHJ4wBAAAA&ccb=7-4&oh=00_AT_B_qPgje0fONM8Y7v5TioSE8H5W1YeXgUHgfSG1IGy6w&oe=62860F9A&_nc_sid=7b02f1"
