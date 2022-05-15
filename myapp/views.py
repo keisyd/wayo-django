@@ -5,14 +5,14 @@ from django.http import HttpResponse
 from myapp.models import Banner, Blurb, Book, HomeInfo
 
 def index(request):
-    return HttpResponse("Hello d!")
+    return render(request, 'homepage.html')
 
 def book_by_id(request, book_id):
     book = Book.objects.get(pk=book_id)
     return render(request, 'book_details.html', {'book':book})
 
 def other(request):
-    return render(request, 'theother.html')
+    return render(request, 'homepage.html')
 
 def book(request):
 	info = HomeInfo()
