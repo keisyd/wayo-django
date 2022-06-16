@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from myapp.models import Banner, Blurb, Book, HomeInfo
 
 def index(request):
-    return render(request, 'homepage.html')
+    return render(request, 'whale.html')
 
 def book_by_id(request, book_id):
     book = Book.objects.get(pk=book_id)
